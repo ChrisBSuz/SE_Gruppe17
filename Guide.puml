@@ -1,19 +1,23 @@
 @startuml
 'https://plantuml.com/use-case-diagram
 
-:Main Admin: as Admin
+:Admin: as Admin
 (Publiserer tur) as (Publiserer)
 (Ordredetaljer) as (Ordre)
 (Bruker søker etter tur) as (Søker)
 (Bruker bestiller tur) as (Bestiller)
-(Får bekreftelse) as (bekreftelse)
+(Bekreftelse) as (bekreftelse)
+(Bank transaksjon) as (Bank)
 
 User --> (Søker)
 (Søker) --> (Bestiller)
 (Bestiller) --> (Ordre)
-(Bestiller) --> (bekreftelse)
+(Bestiller) ----> (bekreftelse)
 Admin --> (bekreftelse)
 (Bestiller) --> (Betaling)
+(Betaling) --> (Bank)
+(bekreftelse) -> (Kvittering)
+(Betaling) -> (Kvittering)
 
 Admin --> (Publiserer)
 (Publiserer) --> (Ordre)
