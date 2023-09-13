@@ -1,0 +1,19 @@
+@startuml
+
+autonumber
+
+Admin -> Database: Lager tur
+
+Bruker --> Database: Søker tur
+Database -> Bruker: Resultat av søk
+Bruker -> Database: Bestiller tur
+Database --> Bruker: Lagrer tur
+Database -> Admin: Mottatt bestilling
+Admin -> Bruker: Godkjent bestilling
+Bruker -> Database: Betaling
+Database --> Bank: Salgsforespørsel
+Bank --> Database: Bekreftelse
+Database --> Bruker: Kvittering
+Database -> Admin: Mottatt betaling
+
+@enduml

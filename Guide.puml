@@ -1,0 +1,25 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+
+:Main Admin: as Admin
+(Publiserer tur) as (Publiserer)
+(Ordredetaljer) as (Ordre)
+(Bruker søker etter tur) as (Søker)
+(Bruker bestiller tur) as (Bestiller)
+(Får bekreftelse) as (bekreftelse)
+
+User --> (Søker)
+(Søker) --> (Bestiller)
+(Bestiller) --> (Ordre)
+(Bestiller) --> (bekreftelse)
+Admin --> (bekreftelse)
+(Bestiller) --> (Betaling)
+
+Admin --> (Publiserer)
+(Publiserer) --> (Ordre)
+(Ordre) --> (Lokasjon)
+(Ordre) --> (Pris)
+(Ordre) --> (Antall)
+(Ordre) --> (Tid)
+
+@enduml
