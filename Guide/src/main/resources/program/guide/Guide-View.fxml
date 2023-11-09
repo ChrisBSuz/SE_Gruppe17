@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="program.guide.guideController">
+    <children>
+        <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#openMain" text="Tilbake" />
+        <Button layoutX="512.0" layoutY="14.0" mnemonicParsing="false" onAction="#openGuideTrips" text="Mine Turer" />
+        <ChoiceBox fx:id="guideLocationChoice" layoutX="244.0" layoutY="115.0" prefHeight="25.0" prefWidth="113.0" value="Lokasjon">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Halden" />
+                    <String fx:value="Holmenkollen" />
+                    <String fx:value="Galdhøpiggen" />
+                    <String fx:value="Trolltunga" />
+                    <String fx:value="Kjerag" />
+                    <String fx:value="Bærum" />
+                    <String fx:value="Preikestolen" />
+                    <String fx:value="Gaustatoppen" />
+                    <String fx:value="Besseggen" />
+                    <String fx:value="Romsdalseggen" />
+                </FXCollections>
+            </items>
+        </ChoiceBox>
+        <ChoiceBox fx:id="guidePriceChoice" layoutX="313.0" layoutY="234.0" prefHeight="25.0" prefWidth="60.0" value="0">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="0" />
+                    <String fx:value="150" />
+                    <String fx:value="250" />
+                    <String fx:value="350" />
+                    <String fx:value="500" />
+
+                </FXCollections>
+            </items>
+
+        </ChoiceBox>
+        <DatePicker fx:id="guideDate" layoutX="201.0" layoutY="175.0" prefHeight="25.0" prefWidth="133.0" promptText="Dato" />
+        <TextArea fx:id="guideDescription" layoutX="154.0" layoutY="275.0" prefHeight="99.0" prefWidth="293.0" promptText="Informasjon om turen" />
+        <Label layoutX="229.0" layoutY="238.0" text="Pris pr/person" />
+        <Label layoutX="254.0" layoutY="24.0" text="Oprett Tur">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+        </Label>
+        <Button layoutX="520.0" layoutY="361.0" mnemonicParsing="false" onAction="#publishGuide" text="Publiser" />
+        <ChoiceBox fx:id="guideTimeChoice" layoutX="340.0" layoutY="175.0" prefHeight="17.0" prefWidth="60.0" value="Tid">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="07:00" />
+                    <String fx:value="08:00" />
+                    <String fx:value="09:00" />
+                    <String fx:value="10:00" />
+                    <String fx:value="11:00" />
+                    <String fx:value="12:00" />
+                    <String fx:value="13:00" />
+                    <String fx:value="14:00" />
+                    <String fx:value="15:00" />
+                    <String fx:value="16:00" />
+                    <String fx:value="17:00" />
+                    <String fx:value="18:00" />
+                    <String fx:value="19:00" />
+                    <String fx:value="20:00" />
+                    <String fx:value="21:00" />
+                    <String fx:value="22:00" />
+                </FXCollections>
+            </items>
+        </ChoiceBox>
+        <AnchorPane fx:id="guidePublishedPane" layoutX="191.0" layoutY="128.0" prefHeight="142.0" prefWidth="200.0" style="-fx-background-color: lightGrey;" visible="false">
+            <children>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="29.0" layoutY="24.0" prefHeight="57.0" prefWidth="142.0" text="Turen din er nå publisert og du finner den under mine turer" textAlignment="CENTER" wrapText="true" />
+                <Button layoutX="84.0" layoutY="94.0" mnemonicParsing="false" onAction="#closePublishPane" text="OK" />
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>
