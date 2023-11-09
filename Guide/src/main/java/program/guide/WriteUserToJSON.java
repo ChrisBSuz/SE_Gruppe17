@@ -1,6 +1,5 @@
 package program.guide;
 
-
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -12,7 +11,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class WriteUserToJSON {
-
     public WriteUserToJSON(String id, String persons){
         JSONArray array = new JSONArray();
         JSONParser parser = new JSONParser();
@@ -70,4 +68,3 @@ public class WriteUserToJSON {
 
     }
 }
-
