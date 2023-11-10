@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="program.guide.GuideTripController">
+    <children>
+        <ListView fx:id="guideTripsList" layoutX="23.0" layoutY="62.0" onMouseClicked="#showGuideInfo" prefHeight="298.0" prefWidth="287.0" />
+        <Label fx:id="locationInfo" alignment="CENTER" contentDisplay="CENTER" layoutX="352.0" layoutY="54.0" prefHeight="45.0" prefWidth="217.0" textAlignment="CENTER">
+            <font>
+                <Font size="30.0" />
+            </font>
+        </Label>
+        <Label fx:id="dateInfo" alignment="CENTER" contentDisplay="CENTER" layoutX="421.0" layoutY="97.0" prefHeight="30.0" prefWidth="73.0" textAlignment="CENTER">
+            <font>
+                <Font size="13.0" />
+            </font>
+        </Label>
+        <Label fx:id="descInfo" alignment="TOP_LEFT" layoutX="344.0" layoutY="154.0" prefHeight="170.0" prefWidth="226.0" wrapText="true">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <Button layoutX="137.0" layoutY="364.0" mnemonicParsing="false" onAction="#deleteGuideTrip" text="Slett tur" />
+        <Label fx:id="priceInfo" alignment="CENTER" contentDisplay="CENTER" layoutX="364.0" layoutY="347.0" prefHeight="27.0" prefWidth="191.0" textAlignment="CENTER">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <Label fx:id="timeInfo" alignment="CENTER" contentDisplay="CENTER" layoutX="421.0" layoutY="112.0" prefHeight="30.0" prefWidth="73.0" textAlignment="CENTER">
+            <font>
+                <Font size="13.0" />
+            </font>
+        </Label>
+        <Button layoutX="23.0" layoutY="14.0" mnemonicParsing="false" onAction="#openGuideView" text="Tilbake" />
+        <Label layoutX="263.0" layoutY="13.0" text="Guide Turer">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>
