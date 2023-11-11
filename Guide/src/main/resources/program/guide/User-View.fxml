@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="program.guide.UserController">
+    <children>
+        <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#openMain" text="Tilbake" />
+        <Button layoutX="512.0" layoutY="14.0" mnemonicParsing="false" onAction="#openUserTrip" text="Mine Turer" />
+        <ListView fx:id="userGuideList" layoutX="14.0" layoutY="66.0" onMouseClicked="#showUserGuideInfo" prefHeight="296.0" prefWidth="249.0" />
+        <Label fx:id="userLocationInfo" alignment="CENTER" contentDisplay="CENTER" layoutX="324.0" layoutY="66.0" prefHeight="45.0" prefWidth="249.0" textAlignment="CENTER">
+            <font>
+                <Font size="30.0" />
+            </font></Label>
+        <Label fx:id="userDateInfo" alignment="CENTER" contentDisplay="CENTER" layoutX="405.0" layoutY="113.0" prefHeight="19.0" prefWidth="94.0" textAlignment="CENTER">
+            <font>
+                <Font size="13.0" />
+            </font>
+        </Label>
+        <Label fx:id="userTimeInfo" alignment="CENTER" contentDisplay="CENTER" layoutX="405.0" layoutY="132.0" prefHeight="19.0" prefWidth="94.0" textAlignment="CENTER">
+            <font>
+                <Font size="13.0" />
+            </font>
+        </Label>
+        <Label fx:id="userDescInfo" alignment="TOP_LEFT" layoutX="308.0" layoutY="158.0" prefHeight="147.0" prefWidth="269.0" />
+        <Label fx:id="pricePerPerson" layoutX="341.0" layoutY="319.0" prefHeight="17.0" prefWidth="203.0">
+            <font>
+                <Font size="18.0" />
+            </font></Label>
+        <ChoiceBox fx:id="persons" layoutX="443.0" layoutY="362.0" prefHeight="25.0" prefWidth="45.0" value="1" visible="false">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="1" />
+                    <String fx:value="2" />
+                    <String fx:value="3" />
+                    <String fx:value="4" />
+                    <String fx:value="5" />
+                    <String fx:value="6" />
+                    <String fx:value="7" />
+                    <String fx:value="8" />
+                    <String fx:value="9" />
+                    <String fx:value="10" />
+                </FXCollections>
+            </items></ChoiceBox>
+        <Button fx:id="signUpButton" layoutX="510.0" layoutY="362.0" mnemonicParsing="false" onAction="#showSignupInfo" text="Meld på tur" visible="false" />
+        <ChoiceBox fx:id="userLocationChoice" layoutX="84.0" layoutY="14.0" prefHeight="25.0" prefWidth="110.0" value="Halden">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Halden" />
+                    <String fx:value="Holmenkollen" />
+                    <String fx:value="Galdhøpiggen" />
+                    <String fx:value="Trolltunga" />
+                    <String fx:value="Kjerag" />
+                    <String fx:value="Bærum" />
+                    <String fx:value="Preikestolen" />
+                    <String fx:value="Gaustatoppen" />
+                    <String fx:value="Besseggen" />
+                    <String fx:value="Romsdalseggen" />
+                </FXCollections>
+            </items></ChoiceBox>
+        <DatePicker fx:id="dateFrom" layoutX="203.0" layoutY="14.0" prefHeight="25.0" prefWidth="110.0" />
+        <DatePicker fx:id="dateTo" layoutX="324.0" layoutY="14.0" prefHeight="25.0" prefWidth="110.0" />
+        <Button layoutX="448.0" layoutY="14.0" mnemonicParsing="false" onAction="#searchForGuide" text="Søk" />
+        <AnchorPane fx:id="signupUserToGuidePane" layoutX="167.0" layoutY="118.0" prefHeight="184.0" prefWidth="292.0" style="-fx-background-color: lightGrey;" visible="false">
+            <children>
+                <Button fx:id="paymentOk" defaultButton="true" layoutX="185.0" layoutY="114.0" mnemonicParsing="false" onAction="#assignUserToGuide" prefHeight="45.0" prefWidth="74.0" text="Betaling Godkjent" textAlignment="CENTER" wrapText="true" />
+                <Button fx:id="paymentNotOk" layoutX="38.0" layoutY="114.0" mnemonicParsing="false" onAction="#paymentFailed" prefHeight="45.0" prefWidth="74.0" text="Betaling Mislykket" textAlignment="CENTER" wrapText="true" />
+                <Label fx:id="signupUserToGuideLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="40.0" layoutY="17.0" prefHeight="69.0" prefWidth="220.0" textAlignment="CENTER" wrapText="true">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <AnchorPane fx:id="paymentFailedPane" layoutX="164.0" layoutY="118.0" prefHeight="184.0" prefWidth="292.0" style="-fx-background-color: lightGrey;" visible="false">
+            <children>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="40.0" layoutY="17.0" prefHeight="69.0" prefWidth="220.0" text="Betaling mislykket! prøv igjen eller gå tilbake!" textAlignment="CENTER" wrapText="true">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <Button defaultButton="true" layoutX="185.0" layoutY="114.0" mnemonicParsing="false" onAction="#showSignupInfo" prefHeight="45.0" prefWidth="74.0" text="Prøv Igjen" textAlignment="CENTER" wrapText="true" />
+                <Button layoutX="38.0" layoutY="114.0" mnemonicParsing="false" onAction="#hideSignupInfo" prefHeight="45.0" prefWidth="74.0" text="Tilbake" textAlignment="CENTER" wrapText="true" />
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>
