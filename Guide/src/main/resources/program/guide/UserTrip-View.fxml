@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="program.guide.UserTripController">
+    <children>
+        <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#openUserView" text="Tilbake" />
+        <Button layoutX="109.0" layoutY="361.0" mnemonicParsing="false" onAction="#deleteUserTrip" text="Slett påmelding" />
+        <ListView fx:id="userTripList" layoutX="14.0" layoutY="47.0" onMouseClicked="#showUserTripInfo" prefHeight="303.0" prefWidth="289.0" />
+        <Label layoutX="240.0" layoutY="9.0" text="Mine turer">
+            <font>
+                <Font name="System Bold" size="24.0" />
+            </font>
+        </Label>
+        <Label fx:id="locationInfo" alignment="CENTER" contentDisplay="CENTER" layoutX="334.0" layoutY="47.0" prefHeight="27.0" prefWidth="244.0" textAlignment="CENTER">
+            <font>
+                <Font size="24.0" />
+            </font></Label>
+        <Label fx:id="dateInfo" alignment="CENTER" contentDisplay="CENTER" layoutX="407.0" layoutY="83.0" prefHeight="17.0" prefWidth="100.0" textAlignment="CENTER">
+            <font>
+                <Font size="13.0" />
+            </font></Label>
+        <Label fx:id="timeInfo" alignment="CENTER" contentDisplay="CENTER" layoutX="406.0" layoutY="101.0" prefHeight="17.0" prefWidth="100.0" textAlignment="CENTER">
+            <font>
+                <Font size="13.0" />
+            </font></Label>
+        <Label fx:id="descInfo" alignment="TOP_LEFT" layoutX="334.0" layoutY="144.0" prefHeight="139.0" prefWidth="244.0">
+            <font>
+                <Font size="13.0" />
+            </font></Label>
+        <Label fx:id="priceInfo" alignment="CENTER" contentDisplay="CENTER" layoutX="371.0" layoutY="312.0" prefHeight="17.0" prefWidth="173.0" textAlignment="CENTER">
+            <font>
+                <Font size="14.0" />
+            </font></Label>
+        <Label fx:id="totalPriceInfo" alignment="CENTER" contentDisplay="CENTER" layoutX="353.0" layoutY="342.0" prefHeight="51.0" prefWidth="215.0" textAlignment="CENTER">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>
