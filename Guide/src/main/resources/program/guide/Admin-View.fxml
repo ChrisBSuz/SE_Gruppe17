@@ -10,7 +10,7 @@
          <font>
             <Font name="System Bold" size="18.0" />
          </font></Label>
-      <Label layoutX="102.0" layoutY="113.0" prefHeight="174.0" prefWidth="397.0" text="DENNE SIDEN NER IKKE FUNKSJONEKLL ENDA!" wrapText="true">
+      <Label layoutX="102.0" layoutY="113.0" prefHeight="174.0" prefWidth="397.0" text="DENNE SIDEN ER IKKE FUNKSJONELL ENDA!" wrapText="true">
          <font>
             <Font size="18.0" />
          </font>
