@@ -20,7 +20,7 @@ public class ReadFromJSON {
 
         String json = null;
         try {
-            json = new String(Files.readAllBytes(Paths.get("src/main/resources/JSON/Guide.json")));
+            json = new String(Files.readAllBytes(Paths.get("Guide/src/main/resources/JSON/Guide.json")));
         } catch (IOException e) {throw new RuntimeException(e);}
 
         try {
@@ -30,7 +30,7 @@ public class ReadFromJSON {
         }
 
         try {
-            json = new String(Files.readAllBytes(Paths.get("src/main/resources/JSON/User.json")));
+            json = new String(Files.readAllBytes(Paths.get("Guide/src/main/resources/JSON/User.json")));
 
         } catch (IOException e) {throw new RuntimeException(e);}
 

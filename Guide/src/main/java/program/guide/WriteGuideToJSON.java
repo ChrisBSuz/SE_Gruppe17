@@ -26,7 +26,7 @@ public class WriteGuideToJSON {
 
         String json = null;
         try {
-            json = new String(Files.readAllBytes(Paths.get("src/main/resources/JSON/Guide.json")));
+            json = new String(Files.readAllBytes(Paths.get("Guide/src/main/resources/JSON/Guide.json")));
 
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -61,7 +61,7 @@ public class WriteGuideToJSON {
         array.add(obj);
 
         try (
-                FileWriter file = new FileWriter("src/main/resources/JSON/Guide.json")) {
+                FileWriter file = new FileWriter("Guide/src/main/resources/JSON/Guide.json")) {
             file.write(array.toJSONString());
         } catch (IOException e) {
             e.printStackTrace();

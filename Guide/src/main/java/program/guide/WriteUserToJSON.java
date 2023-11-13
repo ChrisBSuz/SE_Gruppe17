@@ -25,7 +25,7 @@ public class WriteUserToJSON {
 
         String json = null;
         try {
-            json = new String(Files.readAllBytes(Paths.get("src/main/resources/JSON/User.json")));
+            json = new String(Files.readAllBytes(Paths.get("Guide/src/main/resources/JSON/User.json")));
 
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -58,7 +58,7 @@ public class WriteUserToJSON {
             }
         }
         try (
-                FileWriter file = new FileWriter("src/main/resources/JSON/User.json")) {
+                FileWriter file = new FileWriter("Guide/src/main/resources/JSON/User.json")) {
             file.write(array.toJSONString());
         } catch (IOException e) {
             e.printStackTrace();
