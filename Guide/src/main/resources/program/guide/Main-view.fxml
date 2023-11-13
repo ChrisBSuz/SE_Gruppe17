@@ -16,7 +16,7 @@
                 <Font size="35.0" />
             </font>
         </Button>
-        <Button layoutX="256.0" layoutY="343.0" mnemonicParsing="false" text="Administrator" />
+        <Button layoutX="256.0" layoutY="343.0" mnemonicParsing="false" onAction="#openAdminView" text="Administrator" />
         <Label layoutX="216.0" layoutY="40.0" text="Innlogging">
             <font>
                 <Font size="35.0" />

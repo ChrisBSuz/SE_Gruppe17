@@ -39,4 +39,25 @@ public class Controller {
 
     }
 
+    @FXML
+    public void openAdminView(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("Admin-View.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setTitle("Administrator");
+        stage.setScene(scene);
+        stage.show();
+        System.out.println("open admin view");
+    }
+
+    public void openMainView(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("Main-View.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setTitle("Brukervalg");
+        stage.setScene(scene);
+        stage.show();
+        System.out.println("open main view");
+    }
+
 }

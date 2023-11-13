@@ -42,7 +42,7 @@
         <DatePicker fx:id="guideDate" layoutX="201.0" layoutY="175.0" prefHeight="25.0" prefWidth="133.0" promptText="Dato" />
         <TextArea fx:id="guideDescription" layoutX="154.0" layoutY="275.0" prefHeight="99.0" prefWidth="293.0" promptText="Informasjon om turen" />
         <Label layoutX="229.0" layoutY="238.0" text="Pris pr/person" />
-        <Label layoutX="254.0" layoutY="24.0" text="Oprett Tur">
+        <Label layoutX="254.0" layoutY="24.0" text="Opprett Tur">
             <font>
                 <Font name="System Bold" size="20.0" />
             </font>
