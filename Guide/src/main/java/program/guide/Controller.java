@@ -25,6 +25,7 @@ public class Controller {
         stage.setTitle("Opprett Tur");
         stage.setScene(scene);
         stage.show();
+        System.out.println("open guide view");
     }
 
     public void openUser(ActionEvent event) throws IOException {
@@ -34,6 +35,8 @@ public class Controller {
         stage.setTitle("Søk");
         stage.setScene(scene);
         stage.show();
+        System.out.println("open User view");
+
     }
 
 }
