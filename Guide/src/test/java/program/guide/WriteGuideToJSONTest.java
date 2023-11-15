@@ -1,10 +1,11 @@
+package program.guide;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.junit.jupiter.api.Test;
-import program.guide.WriteGuideToJSON;
+
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -33,7 +34,7 @@ public class WriteGuideToJSONTest {
 
         String json = null;
         try {
-            json = new String(Files.readAllBytes(Paths.get("Guide/src/test/resources/JSON/Guide.json")));
+            json = new String(Files.readAllBytes(Paths.get("Guide/src/test/resources/Guide.json")));
 
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -68,7 +69,7 @@ public class WriteGuideToJSONTest {
         array.add(obj);
 
         try (
-                FileWriter file = new FileWriter("Guide/src/test/resources/JSON/Guide.json")) {
+                FileWriter file = new FileWriter("Guide/src/test/resources/Guide.json")) {
             file.write(array.toJSONString());
         } catch (IOException e) {
             e.printStackTrace();
