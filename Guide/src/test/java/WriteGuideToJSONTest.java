@@ -1,23 +1,18 @@
-package program.guide;
-
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import org.junit.jupiter.api.Test;
-
+import org.junit.Test;
 
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-import static org.junit.jupiter.api.Assertions.*;
-
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class WriteGuideToJSONTest {
 
-    //Denne testen kjører i ReadFromJsonTest();
     public void WriteGuideToJSON(String location, String date, String time, String price, String description) {
 
         JSONArray array = new JSONArray();
@@ -76,9 +71,7 @@ public class WriteGuideToJSONTest {
         }
 
 
+
     }
 
 }
-
-
-
