@@ -1,4 +1,4 @@
-package guide.program.guide;
+package program.guide;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
