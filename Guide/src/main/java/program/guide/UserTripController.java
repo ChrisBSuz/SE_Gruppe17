@@ -49,6 +49,7 @@ public class UserTripController implements Initializable {
                     if (obj.get("id").toString().equals(obj1.get("id").toString())) {
                         userTripList.getItems().add(obj.get("location").toString() + ", " + obj.get("date") + " Kl: " + obj.get("time") + ", ID: " + obj.get("id"));
                     }
+
                 }
             }
         }
