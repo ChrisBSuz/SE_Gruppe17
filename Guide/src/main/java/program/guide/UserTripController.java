@@ -29,13 +29,14 @@ public class UserTripController implements Initializable {
     ListView<String> userTripList;
     @FXML
     Label locationInfo, dateInfo, timeInfo, descInfo, priceInfo, totalPriceInfo;
+    JsonHandler jsonHandler = new JsonHandler();
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        new ReadFromJSON();
-        JSONArray arrayUser = ReadFromJSON.getUserJSON();
-        JSONArray arrayGuide = ReadFromJSON.getGuideJSON();
+
+        JSONArray arrayUser = jsonHandler.readFromJson("user");
+        JSONArray arrayGuide = jsonHandler.readFromJson("guide");
         JSONParser parser = new JSONParser();
         JSONObject obj = null;
         JSONObject obj1 = null;
@@ -46,10 +47,12 @@ public class UserTripController implements Initializable {
                 obj = (JSONObject) arrayGuide.get(i);
                 for (int x = 0; x < arrayUser.size(); x++) {
                     obj1 = (JSONObject) arrayUser.get(x);
-                    if (obj.get("id").toString().equals(obj1.get("id").toString())) {
+                    if(obj1.get("persons").equals("100")){
+                        jsonHandler.deleteUserFromJson(obj1.get("id").toString());
+                    }
+                    else if (obj.get("id").toString().equals(obj1.get("id").toString())) {
                         userTripList.getItems().add(obj.get("location").toString() + ", " + obj.get("date") + " Kl: " + obj.get("time") + ", ID: " + obj.get("id"));
                     }
-
                 }
             }
         }
@@ -59,48 +62,30 @@ public class UserTripController implements Initializable {
     public void deleteUserTrip(){
         int index = userTripList.getFocusModel().getFocusedIndex();
         String tripId = userTripList.getItems().get(index).split("ID: ")[1];
-        new ReadFromJSON();
-        JSONParser parser = new JSONParser();
-        JSONArray arrayUser = ReadFromJSON.getUserJSON();
-        JSONArray newArray = new JSONArray();
 
-        if(!arrayUser.isEmpty()) {
-            for (int i = 0; i < arrayUser.size(); i++) {
-                JSONObject thisline = null;
-                try {
-                    thisline = (JSONObject) parser.parse(arrayUser.get(i).toString());
-                } catch (ParseException e) {
-                    throw new RuntimeException(e);
-                }
-                if (!tripId.toString().equals(thisline.get("id").toString())) {
-                    newArray.add(thisline);
-                }
+        jsonHandler.deleteUserFromJson(tripId);
 
-            }
-            try (
-                    FileWriter file = new FileWriter("src/main/resources/JSON/User.json")) {
-                file.write(newArray.toJSONString());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            userTripList.getItems().remove(index);
-            locationInfo.setText("");
-            dateInfo.setText("");
-            timeInfo.setText("");
-            descInfo.setText("");
-            priceInfo.setText("");
-            totalPriceInfo.setText("");
-        }
-
-
+        userTripList.getItems().remove(index);
+        locationInfo.setText("");
+        dateInfo.setText("");
+        timeInfo.setText("");
+        descInfo.setText("");
+        priceInfo.setText("");
+        totalPriceInfo.setText("");
     }
+
+
+
 
     public void showUserTripInfo(){
         int index = userTripList.getFocusModel().getFocusedIndex();
-        String tripId = userTripList.getItems().get(index).split("ID: ")[1];
-        new ReadFromJSON();
-        JSONArray arrayUser = ReadFromJSON.getUserJSON();
-        JSONArray arrayGuide = ReadFromJSON.getGuideJSON();
+        String tripId = "";
+        if(index != -1) {
+            tripId = userTripList.getItems().get(index).split("ID: ")[1];
+        }
+
+        JSONArray arrayUser = jsonHandler.readFromJson("user");
+        JSONArray arrayGuide = jsonHandler.readFromJson("guide");
         JSONParser parser = new JSONParser();
         int pricePerPerson = 0;
         for(int i = 0; i < arrayGuide.size(); i++){
