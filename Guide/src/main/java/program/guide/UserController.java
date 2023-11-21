@@ -42,6 +42,7 @@ public class UserController implements Initializable {
     Label userLocationInfo, userDateInfo, userTimeInfo, userDescInfo, pricePerPerson, signupUserToGuideLabel;
     @FXML
     AnchorPane signupUserToGuidePane, paymentFailedPane;
+    JsonHandler jsonHandler = new JsonHandler();
 
     public int priceT = 0;
 
@@ -49,17 +50,21 @@ public class UserController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        new ReadFromJSON();
-        jsonList = ReadFromJSON.guideJSON;
+        jsonList = jsonHandler.readFromJson("guide");
 
         for (int i = 0; i < jsonList.size(); i++){
+
             try {
                 thisLine = (JSONObject) parser.parse(jsonList.get(i).toString());
             } catch (ParseException e) {
                 throw new RuntimeException(e);
             }
-            if(!thisLine.isEmpty()) {
-                userGuideList.getItems().add(thisLine.get("location").toString() + ", " + thisLine.get("date") + " Kl: " + thisLine.get("time") + ", ID: " + thisLine.get("id"));
+
+            if(thisLine.get("description").equals("dette er en test!!!!!")){
+                jsonHandler.deleteGuideFromJson(thisLine.get("id").toString());
+            }
+            else if(!thisLine.isEmpty()) {
+                userGuideList.getItems().add(searchResult("",i,"0000-00-00", "9999-99-99"));
 
             }
         }
@@ -72,7 +77,6 @@ public class UserController implements Initializable {
         tripId = userGuideList.getItems().get(index).split("ID: ")[1];
 
         for(int i = 0; i < jsonList.size(); i++){
-
             try {
                 thisLine = (JSONObject) parser.parse(jsonList.get(i).toString());
             } catch (ParseException e) {
@@ -109,43 +113,13 @@ public class UserController implements Initializable {
 
         int counter = 0;
 
-        String[] fromDate = dateFrom.getValue().toString().split("-");
-        String[] toDate = dateTo.getValue().toString().split("-");
+        for(int i = 0; i < jsonList.size(); i++) {
+            String result = searchResult(userLocationChoice.getValue().toString(),i, dateFrom.getValue().toString(),dateTo.getValue().toString());
 
-        for(int i = 0; i < ReadFromJSON.getGuideJSON().size(); i++) {
-            String outputString;
-            JSONObject outObj = null;
-            try {
-                outObj = (JSONObject) parser.parse(ReadFromJSON.getGuideJSON().get(i).toString());
-            } catch (ParseException e) {
-                throw new RuntimeException(e);
+            if(!result.isBlank()){
+                userGuideList.getItems().add(result);
             }
 
-            if(outObj.get("location").toString().equals(userLocationChoice.getValue().toString())) {
-
-                String id = outObj.get("id").toString();
-                String l = outObj.get("location").toString();
-                String d = outObj.get("date").toString();
-                String[] d2 = d.split("-");
-
-                int dateIsInt = Integer.parseInt(d2[0] + d2[1] + d2[2]);
-
-                int dateFromInt = Integer.parseInt(fromDate[0] + fromDate[1] + fromDate[2]);
-                int dateToInt = Integer.parseInt(toDate[0] + toDate[1] + toDate[2]);
-
-
-                String t = outObj.get("time").toString();
-
-                if(dateIsInt >= dateFromInt && dateIsInt <= dateToInt){
-                    outputString = l + " , " + d + " kl: " + t + ", ID: " + id;
-                    userGuideList.getItems().add(counter, outputString);
-
-                    counter++;
-
-
-                }
-
-            }
 
         }
 
@@ -153,6 +127,65 @@ public class UserController implements Initializable {
     }
 
 
+
+
+
+
+    public boolean fromDateToDate(String dateFrom, String dateTo, String thisDate){
+        String[] fromDate = dateFrom.split("-");
+        String[] toDate = dateTo.split("-");
+        String[] dateThis = thisDate.split("-");
+
+        int dateIsInt = Integer.parseInt(dateThis[0] + dateThis[1] + dateThis[2]);
+        int dateFromInt = Integer.parseInt(fromDate[0] + fromDate[1] + fromDate[2]);
+        int dateToInt = Integer.parseInt(toDate[0] + toDate[1] + toDate[2]);
+
+        if(dateIsInt >= dateFromInt && dateIsInt <= dateToInt) {
+
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public String searchResult(String location,int count,String dateFrom, String dateTo) {
+        String outputString;
+        JSONObject outObj;
+        jsonList = jsonHandler.readFromJson("guide");
+
+        try {
+            outObj = (JSONObject) parser.parse(jsonList.get(count).toString());
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+
+        String id = outObj.get("id").toString();
+        String l = outObj.get("location").toString();
+        String d = outObj.get("date").toString();
+        String t = outObj.get("time").toString();
+        if (location.isBlank()) {
+            if(!outObj.get("description").equals("dette er en test!!!!!")){
+                return l + ", " + d + " kl: " + t + ", ID: " + id;
+            }
+            else {
+                return "";
+            }
+
+        } else {
+
+            if (location.equals(l)) {
+
+                if (fromDateToDate(dateFrom, dateTo, d)) {
+                    outputString = l + ", " + d + " kl: " + t + ", ID: " + id;
+
+                    return outputString;
+
+                }
+            }
+            return "";
+        }
+    }
 
     public void showSignupInfo(){
         signupUserToGuidePane.setVisible(true);
@@ -164,7 +197,7 @@ public class UserController implements Initializable {
         paymentFailedPane.setVisible(false);
     }
     public void assignUserToGuide(){
-        new WriteUserToJSON(tripId, persons.getValue().toString());
+        jsonHandler.writeUserToJson(tripId, persons.getValue().toString());
         signupUserToGuidePane.setVisible(false);
     }
     public void paymentFailed(){
@@ -187,7 +220,4 @@ public class UserController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-
-
-
 }
