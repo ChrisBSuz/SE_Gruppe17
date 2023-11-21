@@ -28,7 +28,7 @@ public class GuideTripController implements Initializable {
     private JSONParser parser = new JSONParser();
     private JSONObject thisLine;
     private JSONArray jsonList;
-    guide.program.guide.JsonHandler jsonHandler = new guide.program.guide.JsonHandler();
+    JsonHandler jsonHandler = new JsonHandler();
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
