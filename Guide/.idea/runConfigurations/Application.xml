@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
+  <configuration default="false" name="Application" type="Application" factoryName="Application">
     <option name="MAIN_CLASS_NAME" value="program.guide.Main" />
     <module name="Guide" />
     <extension name="coverage">
