@@ -34,7 +34,7 @@
 
 
 
-<h2>Bruksannvisning</h2>
+<h2>Bruksanvisning</h2>
 
 <ul>
 <li>Når du først åpner programmet så får du valg mellom brukere.
