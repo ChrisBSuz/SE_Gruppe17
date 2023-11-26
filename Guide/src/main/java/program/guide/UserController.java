@@ -127,10 +127,6 @@ public class UserController implements Initializable {
     }
 
 
-
-
-
-
     public boolean fromDateToDate(String dateFrom, String dateTo, String thisDate){
         String[] fromDate = dateFrom.split("-");
         String[] toDate = dateTo.split("-");

@@ -10,11 +10,14 @@
          <font>
             <Font name="System Bold" size="18.0" />
          </font></Label>
-      <Label layoutX="102.0" layoutY="113.0" prefHeight="174.0" prefWidth="397.0" text="DENNE SIDEN ER IKKE FUNKSJONELL ENDA!" wrapText="true">
+      <Label layoutX="122.0" layoutY="334.0" prefHeight="40.0" prefWidth="358.0" text="DENNE SIDEN ER IKKE FUNKSJONELL ENDA!" wrapText="true">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
       <Button layoutX="14.0" layoutY="15.0" mnemonicParsing="false" onAction="#openMainView" text="Tilbake" />
+      <Button layoutX="56.0" layoutY="145.0" mnemonicParsing="false" prefHeight="98.0" prefWidth="132.0" text="Administrer Brukere" />
+      <Button layoutX="414.0" layoutY="145.0" mnemonicParsing="false" prefHeight="98.0" prefWidth="132.0" text="Administrer betalinger" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="235.0" layoutY="145.0" mnemonicParsing="false" prefHeight="98.0" prefWidth="132.0" text="Administrer Turer" />
    </children>
 </AnchorPane>
