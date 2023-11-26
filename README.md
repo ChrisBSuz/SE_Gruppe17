@@ -2,16 +2,27 @@
 
 
 <ol>
-
-<li>Version JVM 21</li>
 <li>Last ned Prosjektet først <a href="https://github.com/ChrisBSuz/SE_Gruppe17/raw/main/Guide.zip">HER</a> og pakk ut</li>
 <li>Åpne mappen "Guide" som er pakket ut i IntelliJ</li>
 <li>Hvis den spør om å "stole" på prosjektet så trykk på "trust project" som vist på bildet under</li>
 <br /><br />
 <img src="TrustProject.png"></img>
 <br /><br />
+<li>Bruk JVM 21, hvis dette ikke er allerede installert så tykk på "change Jdk" som vist i bildet under</li><br /><br />
+
+<img src="./JVM.png"></img>
+<br /> <br />
+
+<li>så velg "openJdk 21" og last ned som vist i bildet nedenfor</li>
+<br /><br />
+
+<img src="./JDK.png"></img>
+<br /> <br />
 
 <li>Trykk på automatisk hvis den spør om tillatelse i brannmur</li>
+<br /><br />
+<img src="./Firewall.png"></img>
+<br /><br />
 <li>Trykk "last ned" når IntelliJ spør om maven "dependencies"</li>
 <li>For å kjøre tester så finnes det "run configuration" som heter "TestRunner"</li>
 <li>For å kjøre Applikasjonen så finnes det "run configuration" som heter "Application"</li>
