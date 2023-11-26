@@ -10,7 +10,7 @@
     <children>
         <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#openMain" text="Tilbake" />
         <Button layoutX="512.0" layoutY="14.0" mnemonicParsing="false" onAction="#openGuideTrips" text="Mine Turer" />
-        <ChoiceBox fx:id="guideLocationChoice" layoutX="244.0" layoutY="115.0" prefHeight="25.0" prefWidth="113.0" value="Lokasjon">
+        <ChoiceBox fx:id="guideLocationChoice" layoutX="244.0" layoutY="115.0" prefHeight="25.0" prefWidth="113.0" value="Halden">
             <items>
                 <FXCollections fx:factory="observableArrayList">
                     <String fx:value="Halden" />

@@ -26,7 +26,9 @@
 <li>Trykk "last ned" når IntelliJ spør om maven "dependencies"</li>
 <li>For å kjøre tester så finnes det "run configuration" som heter "TestRunner"</li>
 <li>For å kjøre Applikasjonen så finnes det "run configuration" som heter "Application"</li>
-
+<li>Hvis du fortsatt har feil og maven dependecies ikke er lastet ned, så trykk på maven plugin til høyre på IntelliJ og trykk på "1" også "2" som vist i bildet under</li>
+<br /><br />
+<img src="./PomXmlUpdate.png"></img>
 </ol>
 
 
