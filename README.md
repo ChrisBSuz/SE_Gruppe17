@@ -30,28 +30,3 @@
 <br /><br />
 <img src="./PomXmlUpdate.png"></img>
 </ol>
-
-
-
-
-<h2>Bruksanvisning</h2>
-
-<ul>
-<li>Når du først åpner programmet så får du valg mellom brukere.
-    <ul>
-        <li>
-           Guide: Her kan du publisere turer og administrere dem.
-        </li>
-        <li>
-            Turist: Her kan du søke etter turer og melde deg på for så å betale. i tilleg til å melde deg av.
-        </li>
-        <li>
-            Administrator: Denne siden er ikke funksjonell enda, men her skal du KUNNE administrere brukere, publiserte turer og betalinger.
-        </li>
-    </ul>
-</li>
-    
-
-</ul>
-
-
