@@ -13,7 +13,7 @@
 <img src="./JVM.png"></img>
 <br /> <br />
 
-<li>deretter velg "openJDK 21" og last ned som vist i bildet nedenfor</li>
+<li>Deretter velg "openJDK 21" og last ned som vist i bildet nedenfor</li>
 <br /><br />
 
 <img src="./JDK.png"></img>
