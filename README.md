@@ -1,6 +1,6 @@
 <h1 class="header">Guide</h1>
 
-
+<h2>Innstallasjon</h2>
 <ul>
 
 <li>Version JVM 21</li>
